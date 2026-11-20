@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="invitation-build" content="2026-11-20-music-mp3-approved-r5"><meta name="theme-color" content="#f5eee5"><title>Vishal & Khushi | An Invitation for You</title><meta name="description" content="An invitation to celebrate Vishal and Khushi, February 2027.">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="invitation-build" content="2026-11-20-soft-entrance-audio-v2"><meta name="theme-color" content="#f5eee5"><title>Vishal & Khushi | An Invitation for You</title><meta name="description" content="An invitation to celebrate Vishal and Khushi, February 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
 :root{--dark:#322921;--cream:#faf5ed;--gold:#b79768;--rose:#ae6c65;--view:100svh}*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#171512}body{font-family:'DM Sans',sans-serif;-webkit-tap-highlight-color:transparent}button,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #c89c66;outline-offset:3px}button:disabled{opacity:.55;cursor:default}
@@ -260,11 +260,64 @@ html,body{overflow-x:hidden}
 .music-trigger .music-glyph{min-width:16px;text-align:center}
 @media(max-width:360px){.music-trigger{padding:7px 9px;font-size:9px}}
 
+
+/* Softer print-on-paper treatment, while keeping the two lines readable. */
+.front-top .guest-message {
+  color:#63493c!important;
+  background:rgba(255,249,240,.48)!important;
+  border:1px solid rgba(149,113,94,.06)!important;
+  border-radius:16px!important;
+  padding:4px 10px 5px!important;
+  font-weight:500!important;
+  text-shadow:0 1px 2px rgba(255,250,243,.55)!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:blur(2px);
+  backdrop-filter:blur(2px);
+}
+.front-bottom .pretitle {
+  color:#62483e!important;
+  background:rgba(255,249,240,.46)!important;
+  border:0!important;
+  border-radius:999px!important;
+  padding:3px 11px 4px!important;
+  font-weight:500!important;
+  text-shadow:0 1px 2px rgba(255,253,246,.65)!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:blur(2px);
+  backdrop-filter:blur(2px);
+}
+/* Music starts on the opening tap; after that, show only a quiet pause/resume icon. */
+.music-trigger {
+  position:absolute!important;
+  right:15px!important;
+  top:calc(env(safe-area-inset-top,0px) + 72px)!important;
+  width:35px!important;
+  height:35px!important;
+  min-height:35px!important;
+  padding:0!important;
+  border-radius:50%!important;
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+  border:1px solid rgba(184,149,116,.38)!important;
+  background:rgba(255,250,243,.76)!important;
+  box-shadow:0 3px 12px rgba(60,40,30,.08)!important;
+  color:#795948!important;
+  font-size:18px!important;
+  z-index:9!important;
+  opacity:.88;
+  transition:opacity .2s ease,background .2s ease!important;
+}
+.music-trigger[hidden]{display:none!important}
+.music-trigger .music-glyph {font-size:18px!important;min-width:0!important;line-height:1!important;color:inherit!important}
+.music-trigger.is-playing {background:rgba(255,248,237,.84)!important;color:#75513c!important}
+.music-trigger:focus-visible{outline:2px solid #9b7d60!important;outline-offset:3px!important}
+
 </style><meta name="build-version" content="music-mp3-contrast-calendar-clean-2026-11-20"></head>
 <body><main class="app" id="app">
   <!-- The music starts on the guest's first invitation-opening tap (browser-permitted user gesture). -->
-  <audio id="weddingAudio" preload="none" loop src="vhalam-aavo-ne.mp3" aria-label="Vhalam Aavo Ne wedding soundtrack"></audio>
-  <button class="music-trigger" id="musicToggle" type="button" aria-label="Play wedding music" aria-pressed="false"><span class="music-glyph" aria-hidden="true">♫</span><span id="musicToggleLabel">Play our song</span></button>
+  <audio id="weddingAudio" preload="metadata" playsinline loop src="vhalam-aavo-ne-soft.mp3" aria-label="Vhalam Aavo Ne wedding soundtrack"></audio>
+  <button class="music-trigger" id="musicToggle" type="button" aria-label="Pause background music" aria-pressed="false" title="Music: tap to pause or resume" hidden><span class="music-glyph" aria-hidden="true">♫</span></button>
 
   <section class="page front active" id="cover" aria-label="Personalised opening"><div class="art"></div><div class="curtain"></div><div class="front-top"><div class="guest-greeting"><div class="salutation">With love, for</div><h2 class="guest-name" id="coverGuest">Arman</h2><div class="greeting-rule" aria-hidden="true"><span></span><b>✦</b><span></span></div><p class="guest-message">A little celebration feels brighter with you in it.</p></div></div><div class="front-bottom"><p class="pretitle">Together with our families</p><h1 class="couple-names">Vishal<em>&amp;</em>Khushi</h1><div class="dates">1–4 February · 2027</div><button class="primary" id="open" type="button">Come, be part of our story <span aria-hidden="true">↗</span></button><p class="subline">a celebration made beautiful by your presence</p><button class="creator-link" id="createGuest" type="button" hidden>Personalise &amp; share an invitation <span aria-hidden="true">↗</span></button></div></section>
   <section class="page events" id="events" data-active="mantap" aria-label="Wedding celebrations">
@@ -382,41 +435,44 @@ $('saveAllDates').addEventListener('click',downloadCalendar);$('googleEvent').ad
 })();
 </script>
 
-<script>
-(()=>{'use strict';
+<script>(()=>{'use strict';
   const audio=document.getElementById('weddingAudio');
   const button=document.getElementById('musicToggle');
-  const label=document.getElementById('musicToggleLabel');
   const opening=document.getElementById('open');
-  let userPaused=false;
-  function displayState(){
-    const playing=!audio.paused;
+  if(!audio||!button||!opening)return;
+  let started=false;
+  function update(){
+    const playing=!audio.paused&&!audio.ended;
     button.classList.toggle('is-playing',playing);
     button.setAttribute('aria-pressed',String(playing));
-    button.setAttribute('aria-label',playing?'Pause wedding music':'Play wedding music');
-    label.textContent=playing?'Pause music':'Play our song';
+    button.setAttribute('aria-label',playing?'Pause background music':'Resume background music');
+    button.title=playing?'Pause music':'Resume music';
+    button.querySelector('.music-glyph').textContent=playing?'♫':'♪';
   }
-  function playMusic(){
-    const request=audio.play();
-    if(request&&typeof request.catch==='function') request.catch(()=>{displayState();});
+  function start(){
+    // The MP3 itself contains an 11-second gentle fade-in, including on iOS.
+    const result=audio.play();
+    if(result&&typeof result.catch==='function'){
+      result.catch(()=>{update();button.title='Tap to enable music';});
+    }
   }
-  button.addEventListener('click',()=>{
-    if(audio.paused){userPaused=false;playMusic();}
-    else {userPaused=true;audio.pause();}
-  });
-  // The first invitation-opening tap is a direct user gesture, avoiding blocked autoplay.
+  // Browsers block unprompted audible autoplay. Opening the invitation is the first
+  // reliable user gesture. Music starts there without asking for an extra tap.
   opening.addEventListener('click',()=>{
-    if(!userPaused && audio.paused) playMusic();
+    button.hidden=false;
+    if(!started){started=true; start();}
   });
-  audio.addEventListener('playing',displayState);
-  audio.addEventListener('pause',displayState);
-  audio.addEventListener('ended',displayState);
+  button.addEventListener('click',()=>{
+    if(audio.paused) start();
+    else audio.pause();
+  });
+  ['playing','pause','ended','waiting'].forEach(name=>audio.addEventListener(name,update));
   audio.addEventListener('error',()=>{
-    label.textContent='Music unavailable';
+    button.hidden=false;
     button.setAttribute('aria-label','Music unavailable');
+    button.title='Music unavailable — check the audio file';
     button.disabled=true;
   });
-  displayState();
-})();
-</script>
+  update();
+})();</script>
 </body></html>
