@@ -402,6 +402,13 @@ html,body{overflow-x:hidden}
   .events-top .vk-logo-holder{width:79px!important;min-height:55px!important}
   .events-top .vk-logo-holder .vk-logo{width:78px!important;height:55px!important}
 }
+
+/* Final one-logo correction. On Mandap, Haldi and Wedding show only cocoa.
+   On Reception show only champagne. No layout or other features modified. */
+.events:not([data-active="reception"]) .events-top .vk-logo-holder .vk-logo-night {display:none!important;}
+.events:not([data-active="reception"]) .events-top .vk-logo-holder .vk-logo-day {display:block!important;}
+.events[data-active="reception"] .events-top .vk-logo-holder .vk-logo-day {display:none!important;}
+.events[data-active="reception"] .events-top .vk-logo-holder .vk-logo-night {display:block!important;}
 </style><meta name="build-version" content="logo-kvi-autoplay-audio-r7-2026-11-20"></head>
 <body><main class="app" id="app">
   <!-- Audible autoplay is attempted immediately; first-tap fallback is required on restrictive mobile browsers. -->
